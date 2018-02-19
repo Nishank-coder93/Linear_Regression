@@ -1049,15 +1049,19 @@ print('Accuracy percentage: {:.2f} %'.format(accuracy_score(y_ww_test, y_w_pred)
 
 
 ## Uh-oh
-well the accuracy is pretty low, why did that happen ? 
-Don't be disheartened if the accuracy is pretty low, there are lot of reasons as to why this is happening.
-Some of the reasons could be the data is inaccurate, there are many outliers present, Normalizing the data could improve the accuracy, etc. 
-I leave all of this for you to try.
-There is one method that I'll show you which is called Cross Validation. What this does is it takes in a number say 10 (cv) and splits the data into 10 fold where 9 folds of the data is used for training and 1 is used for Testing and it repeats this process for each folds. Let's see what happens 
+well the accuracy is pretty low, why did that happen even though our model worked so well with the previous data? <br />
+There could be lot of reasons as to why this could be happening.
+Some of the reasons could be that data is inaccurate, there are many outliers present, Maybe data is too irregular and normalizing the data could improve the accuracy, etc. 
+I leave all of this for you to try (I will implement them at some point)
+There is one method that I'll show you which could improve our accuracy and is known as Cross Validation. What this does is it takes in a number say 10 (cv fold) and splits the data into 10 folds where 9 folds of the data is used for training and 1 fold is used for Testing and this process repeats for each fold. <br/>
+Let's see what happens 
 
 
 ```python
+# Passing the regression model, X data, Y data and number of folds (cv)
 score = cross_val_score(wine_regr, X_ww_train,y_ww_train, cv=10)
+
+# the mean of 10 scores obtained
 score.mean()
 ```
 
